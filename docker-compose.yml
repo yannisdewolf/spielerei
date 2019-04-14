@@ -1,0 +1,16 @@
+version: '3.7'
+services: 
+  producer:
+    container_name: demoproducer
+    build: ./demo
+    ports: 
+      - 8080:8080 #host:container
+  consumer:
+    container_name: consumer
+    build: ./democonsumer
+    depends_on: 
+      - producer
+    ports: 
+      - 8081:8080  #host:container
+    environment:
+      - SPRING_PROFILES_ACTIVE=container

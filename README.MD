@@ -9,3 +9,11 @@ A service which consumes a service.
 Has 2 different profiles:
 - **default**: with configuration when the producer is running in a container
 - **container**: with configuration when the producer is not running in a container
+
+## Run via Docker compose:
+
+### Start
+`docker-compose up`
+
+### Stop
+`docker-compose down`
