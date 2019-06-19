@@ -1,18 +1,32 @@
 package com.example.demo.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SheetParsingResult<T> {
-    public void plusOneSuccess() {
-        throw new UnsupportedOperationException("not ready yet");
+
+    int amountSuccess = 0;
+    private List<RowParsingResult<T>> failures;
+    private List<RowParsingResult<T>> toProcess;
+
+    public SheetParsingResult() {
+        this.failures = new ArrayList<>();
+        this.toProcess = new ArrayList<>();
     }
 
     public void plusOneFailure(RowParsingResult<T> result) {
-        throw new UnsupportedOperationException("not ready yet");
+        this.failures.add(result);
     }
 
     public List<RowWithRownumber<T>> getElementsToProcess() {
-        throw new UnsupportedOperationException("not ready yet");
+        return toProcess.stream()
+                        .map(RowParsingResult::getDataRow)
+                        .collect(Collectors.toList());
 
+    }
+
+    public void plusOneSuccess(RowParsingResult<T> result) {
+        toProcess.add(result);
     }
 }

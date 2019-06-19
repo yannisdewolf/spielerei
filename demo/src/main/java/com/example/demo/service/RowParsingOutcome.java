@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.StringJoiner;
+
 public class RowParsingOutcome {
 
     private final String errorMessage;
@@ -19,6 +21,15 @@ public class RowParsingOutcome {
         return new RowParsingOutcome(error, false);
     }
 
+    public boolean isSuccess() {
+        return success;
+    }
 
-
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", RowParsingOutcome.class.getSimpleName() + "[", "]")
+                .add("errorMessage='" + errorMessage + "'")
+                .add("success=" + success)
+                .toString();
+    }
 }

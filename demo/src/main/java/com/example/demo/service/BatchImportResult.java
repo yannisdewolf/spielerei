@@ -12,7 +12,7 @@ public class BatchImportResult<T> {
     }
 
     public  void error(Exception ex) {
-        throw new UnsupportedOperationException("not ready yet");
+        System.out.println("error occured");
     }
 
     public void addErrorWhileProcessing(RowWithRownumber<T> rowWithRownumber) {
